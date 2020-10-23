@@ -4,8 +4,13 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 
+ #player{
+  margin-left: 25%;
+ }
+
  #wrapper {
     overflow-x: hidden;
+    
  }
 
 #sidebar-wrapper {
@@ -21,6 +26,7 @@
   padding: 0.875rem 1.25rem;
   font-size: 1.2rem;
 }
+
 
 #sidebar-wrapper .list-group {
   width: 15rem;
