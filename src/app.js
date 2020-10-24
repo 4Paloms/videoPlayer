@@ -13,7 +13,8 @@ app.use(express.json());
 app.use(express.static('public'));
 
 
-app.use(require('./routes/index'))
+app.use(require('./routes/app'))
+
 
 //Start
 
