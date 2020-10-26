@@ -12,7 +12,8 @@
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "pug": "^3.0.0",
-    "videojs": "^1.0.0"
+    "videojs": "^1.0.0",
+    "youtube-dl": "^3.0.2"
   },
   "devDependencies": {},
   "scripts": {
