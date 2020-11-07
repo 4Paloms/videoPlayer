@@ -4,9 +4,28 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 
- .video{
+ #player{
   margin-left: 25%;
+  z-index: 1;
+ 
+    
+  
+ 
  }
+ #video_overlays{
+  margin-left: 25%;
+  margin-right: 25%;
+  color: #FFF; 
+  text-align: center;
+  width: 800 ;
+  height: 600; 
+  border: solid 2px red;
+  background: rgba(255,0,0,0.8);
+  position: absolute;
+  z-index: 2147483647;
+   
+ }
+
 
  #wrapper {
     overflow-x: hidden;

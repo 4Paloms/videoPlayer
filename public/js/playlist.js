@@ -1,10 +1,8 @@
-const { application } = require("express");
-const { type } = require("jquery");
-
-
 function download(){
 var url= document.getElementById('inputUrlVideo').value;
-var info = {"name" : url} ;
+//var name  = document.getElementById('inputNameVideo').value;
+
+var info = {"address" : url} ;
 var data ={
     url:"/playlist",
     type:"POST",
