@@ -43,54 +43,34 @@
       <div class="container-fluid " id="video_box" >
         <h1 class="mt-6">Reproductor de Video</h1>
         <div id= video_overlays >
-          <button>Press me</button>
         </div>
         <video  class="video" id="player" width="800"  controls >
             <source src="assets/videos/macro.mp4" type="video/mp4">
         </video>
       </div>
       
-      <div class="row">
-        <div class="col-md-4 mb-5">
-          <div class="card h-100">
-            <div class="card-body">
-              <h2 class="card-title">Video 1</h2>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary btn-sm">Play</a>
-            </div>
+     
+        <div class="col-md-12 mb-8">
+          <h1 class="mt-6">Videos para Reproducir</h1>
+          <% videos.forEach(function(video){%>
+            <div class="card h-100" id="<%=video.id%>" >
+              <div  class="card-body">
+                <img class="img-thumbnail" src='<%=video.poster%>' > 
+                <p class="card-text"><%=video.filename%></p>
+              </div>
+              <div  class="card-footer" >
+                <a  class="btn btn-primary btn-sm" onclick="setSrc('<%=video.filename%>')" >Play Video</a>
+              </div>
           </div>
+          
+        
+        <%})%>
+        
+          
         </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-5">
-          <div class="card h-100">
-            <div class="card-body">
-              <h2 class="card-title">Video 2</h2>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary btn-sm">Play</a>
-            </div>
-          </div>
+        
         </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-5">
-          <div class="card h-100">
-            <div class="card-body">
-              <h2 class="card-title">Video 3</h2>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary btn-sm" id=play>Play</a>
-              
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-
-    
-        </div>
+        
       </div>
     </div>
     <!-- /#page-content-wrapper -->
