@@ -3,20 +3,27 @@
 
 <head>
 
-  <meta charset="utf-8">
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
   <title>Reproductor de Video</title>
-
+  <!-- JQUery-->
+  <script src="/js/jquery-1.12.3.min.js"></script>
   <!-- Bootstrap core CSS -->
   <link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/featherlight.css">
 
   <!-- Custom styles for this template -->
   <link type="text/css" href="/css/simple-sidebar.css" rel="stylesheet">
-  <script type="text/javascript" src="/js/index.js"></script>
 
+  <!-- Auxiliar Functions-->
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/js/featherlight.js"></script>
+  
 </head>
 
 <body>
@@ -30,26 +37,30 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-           
-          </ul>
-        </div>
-      </nav>
-
       <div class="container-fluid " id="video_box" >
         <h1 class="mt-6">Reproductor de Video</h1>
-        <div id= video_overlays >
-        </div>
-        <video  class="video" id="player" width="800"  controls >
-            <source src="assets/videos/macro.mp4" type="video/mp4">
+        <!-- COMPONENTES-->
+        <div class="selectionArea interactionBox1"></div>
+        <div class="selectionArea interactionBox2"></div>
+
+        <video  class="video" id="player" controls >
+            <source id="source"src="assets/videos/macro.mp4" type="video/mp4">
+            <p>ESTE PROGRAMA NO SOPORTA LA EXTENSIÓN DE LOS FICHEROS</p>
         </video>
       </div>
-      
-     
+
+      <!-- ASISTENTES DE VIDEO -->
+      <div class="emergentBox paquitoEmergent ImgEmergent"  >
+        <img class="img-emergent" src="/assets/images/paquitoNavarro.jpeg">
+        <h5>Paquito Navarro</h5>
+      </div>
+
+      <div class="emergentBox lebronEmergent ImgEmergent"  >
+        <img class="img-emergent" src="/assets/images/juanLebron.jpeg">
+        <h5>Juan Lebron Chincoa</h5>
+      </div>
+
+      <!-- LISTA DE VIDEOS-->
         <div class="col-md-12 mb-8">
           <h1 class="mt-6">Videos para Reproducir</h1>
           <% videos.forEach(function(video){%>
@@ -62,8 +73,6 @@
                 <a  class="btn btn-primary btn-sm" onclick="setSrc('<%=video.filename%>')" >Play Video</a>
               </div>
           </div>
-          
-        
         <%})%>
         
           

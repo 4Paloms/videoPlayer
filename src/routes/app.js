@@ -33,9 +33,11 @@ router.post("/playlist" , (req,res) => {
         
         var withoutWhiteSpace =  info._filename.replace(/ /g,"");
 
+        wit
         
         video.pipe(fs.createWriteStream("public/assets/videos/"+withoutWhiteSpace));
         videoObj.filename="assets/videos/"+withoutWhiteSpace;
+        
 
         extractFrame({
           input : 'public/'+videoObj.filename,
@@ -44,7 +46,7 @@ router.post("/playlist" , (req,res) => {
         
         videoObj.poster='assets/posters/'+ withoutWhiteSpace.replace(".mp4","") +'.png';
 
-
+        
         videoc.insert(videoObj);
         res.send("La descarga ha sido satisfactoria");
       })

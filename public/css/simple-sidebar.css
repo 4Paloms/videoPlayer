@@ -5,26 +5,50 @@
  */
 
  #player{
-  margin-left: 25%;
-  z-index: 1;
- 
-    
-  
- 
+  width: 85%;
+  height: auto;
+  vertical-align: baseline;
  }
- #video_overlays{
-  margin-left: 25%;
-  margin-right: 25%;
-  color: #FFF; 
-  text-align: center;
-  width: 800 ;
-  height: 600; 
-  border: solid 2px red;
-  background: rgba(255,0,0,0.8);
+
+ .interactionBox1{
   position: absolute;
-  z-index: 2147483647;
-   
+    
+  background-color: rgb(185, 26, 26, 0);
+  width: 400px;
+  height: 500px;
+  top: 300px;
+  left: 400px;
+ 
+
  }
+
+ .interactionBox2{
+  position: absolute;
+  
+  background-color: rgba(19, 32, 145, 0);
+  width: 400px;
+  height: 500px;
+  top: 300px;
+  left: 1100px;
+  
+}
+
+ .video_box{
+  position: relative;
+ }
+
+ .emergentBox{
+  display: none;
+  
+  border: none;
+}
+
+.img-emergent{
+  max-width:  400;
+  max-height: 400;
+}
+
+
 
 
  #wrapper {
