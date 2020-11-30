@@ -14,16 +14,19 @@ $(document).ready(function(){
     $.featherlight.defaults.afterClose = playPause;
 
     player = $('#player');
+
+    $( ".interactionBox1" ).css("pointer-events","none");
+    $( ".interactionBox2" ).css( "pointer-events", "none" );
     
-    console.log(player);
+    
     
    
-            $(".interactionBox2").on('click' , function(){
-                playPause('.paquitoEmergent');
-            })
-            $(".interactionBox1").on('click' , function(){
-                playPause('.lebronEmergent');
-            })
+    $(".interactionBox2").on('click' , function(){
+        playPause('.paquitoEmergent');
+        })
+    $(".interactionBox1").on('click' , function(){
+        playPause('.lebronEmergent');
+        })
            
         
     });
@@ -85,11 +88,16 @@ function setSrc(valor){
     console.log(player[0].src);
 
     if(player[0].src.includes("assets/videos/FranciscoNavarro-Juan")){
+        $( ".interactionBox1" ).css("pointer-events","auto");
+        $( ".interactionBox2" ).prop( "pointer-events", "auto" );
         $(".interactionBox2").css("cursor","pointer");
         $(".interactionBox1").css("cursor","pointer");
     }else{
-        $(".interactionBox2").css("cursor","block");
-        $(".interactionBox1").css("cursor","block");
+        $(".interactionBox2").css("cursor","default");
+        $(".interactionBox1").css("cursor","default");
+        $( ".interactionBox1" ).css("pointer-events","none");
+        $( ".interactionBox2" ).css( "pointer-events", "none" );
+
     }
     
 }
