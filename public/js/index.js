@@ -17,18 +17,13 @@ $(document).ready(function(){
     
     console.log(player);
     
-    $("#player").on('play', function(){
-        if(player[0].src.includes("assets/videos/FranciscoNavarro-Juan")){
-            $(".interactionBox2").css("cursor","pointer");
-            $(".interactionBox1").css("cursor","pointer");
-
+   
             $(".interactionBox2").on('click' , function(){
                 playPause('.paquitoEmergent');
             })
             $(".interactionBox1").on('click' , function(){
                 playPause('.lebronEmergent');
             })
-        }
            
         
     });
@@ -88,6 +83,14 @@ function setSrc(valor){
     player[0].src=valor;
     
     console.log(player[0].src);
+
+    if(player[0].src.includes("assets/videos/FranciscoNavarro-Juan")){
+        $(".interactionBox2").css("cursor","pointer");
+        $(".interactionBox1").css("cursor","pointer");
+    }else{
+        $(".interactionBox2").css("cursor","block");
+        $(".interactionBox1").css("cursor","block");
+    }
     
 }
 
