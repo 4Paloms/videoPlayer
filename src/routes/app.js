@@ -33,7 +33,7 @@ router.post("/playlist" , (req,res) => {
         
         var withoutWhiteSpace =  info._filename.replace(/ /g,"");
 
-        wit
+        
         
         video.pipe(fs.createWriteStream("public/assets/videos/"+withoutWhiteSpace));
         videoObj.filename="assets/videos/"+withoutWhiteSpace;
