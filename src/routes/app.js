@@ -4,7 +4,8 @@ const fs = require('fs')
 const extractFrame = require('ffmpeg-extract-frame');
 const videoObject = require('../videoObject');
 const videoController = require('../controller/videocontroller.js')
-
+const responceController = require('../controller/responceController.js');
+const responceObject = require('../responceObject.js');
 
 const router = new Router();
 
@@ -15,6 +16,18 @@ router.get("/",(req,res) => {
   let videos = [];
   controller.selectAll().then(resol =>{ videos = resol
     res.render("index", {videos})}); });
+
+router.post("/index",(req,res) => { 
+  var controller = new responceController();
+  console.log(req.body)
+  
+  var responce = new responceObject('','');
+  responce.id_responce = req.body.responce
+  responce.video = req.body.video
+
+  controller.insert(responce);
+    
+});     
   
   
 
@@ -52,5 +65,12 @@ router.post("/playlist" , (req,res) => {
       })
       
     })
+
+    router.get("/estadisticas",(req,res) => { 
+      var controller = new responceController();
+      let responces = [];
+      controller.selectAll().then(resol =>{ responces = resol
+        res.render("estadisticas", {responces})}); });
+
 
 module.exports = router;

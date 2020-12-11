@@ -8,10 +8,17 @@ var villarealGoalPart = 5;
 var realSociedadGoalPart = 22;
 var continuePart=47;
 var finishVideo=90;
+var questionAskedFootball2 = false;
 
-var questionAsked = false;
 
 // VARIABLES VIDEO 2
+var questionAskedNadal = false;
+var questionResponse = false;
+var choicePart = 54 ;
+var checkQuestion = 55;
+
+var responce = "";
+var insertion = false;
 
 // VARIABLE VIDEO 3
 
@@ -33,7 +40,8 @@ $(document).ready(function(){
     $(".interactionBox1").on('click' , function(){
         playPause('.lebronEmergent');
         })
-           
+		  
+	// VIDEO REAL SOCIEDAD - VILLAREAL
 	$(".golVillarreal").on('click', function(){
 		$.featherlight.close();
 		player[0].currentTime= villarealGoalPart;
@@ -52,6 +60,30 @@ $(document).ready(function(){
 	$(".finalizar").on('click', function(){
 		$.featherlight.close();
 		player[0].currentTime = finishVideo;
+	})
+	// VIDEO NADAL
+	$(".TreceRG").on('click', function(){
+		$.featherlight.close();
+		questionResponse=true;
+		responce = 13;
+	})
+	$(".DiezRG").on('click', function(){
+		$.featherlight.close();
+		questionResponse=true;
+		responce = 10;
+		
+	})
+	$(".CincoRG").on('click', function(){
+		$.featherlight.close();
+		questionResponse=true;
+		responce = 5;
+		
+	})
+	$(".NingunoRG").on('click', function(){
+		$.featherlight.close();
+		questionResponse=true;
+		responce = 0;
+		
 	})
 
 
@@ -72,15 +104,42 @@ $(document).ready(function(){
 
 			 var emergentQuestion= $('.emergentQuizFutbol');
 
-			if((currentTime == firstChoicePart || currentTime == secondChoicePart || currentTime==continuePart) && questionAsked==false){
-				questionAsked=true;
+			if((currentTime == firstChoicePart || currentTime == secondChoicePart || currentTime==continuePart) && questionAskedFootball2==false){
+				questionAskedFootball2=true;
 				player[0].pause();
 				showChoiceQuestion(emergentQuestion);
 			}
 			if(currentTime == firstChoicePart+1 || currentTime == secondChoicePart+1 ){
-				questionAsked=false;
+				questionAskedFootball2=false;
 			}
 		}
+		if(player[0].src.includes('Teemocionar')){
+
+			var emergentQuestion= $('.emergentQuizNadal');
+
+		   if(currentTime == choicePart && questionAskedNadal==false){
+			   questionAskedNadal=true;
+			   player[0].pause();
+			   showChoiceQuestion(emergentQuestion);
+		   }
+		   if(currentTime == choicePart+1 ){
+			   questionAskedNadal=false;
+		   }
+		   if(currentTime == checkQuestion && questionResponse==false)
+			   player[0].currentTime = 1;
+		   if(currentTime == durationNum && questionResponse==true && insertion==false){
+			var info = {"responce" : responce, "video":player[0].src} ;
+			var data ={
+				url:"/index",
+				type:"POST",
+				contentType: "application/json",
+				data : JSON.stringify(info), 
+			};
+			$.ajax(data);
+			insertion=true;
+		   }
+
+	   }
 	})
 });
 
