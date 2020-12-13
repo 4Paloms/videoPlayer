@@ -12,8 +12,8 @@ module.exports = class responceController{
     
      insert (responce){
         console.log("HELLO")
-        this.db.run('Insert into responces (responce_id, video) VALUES (? , ?)',
-        [responce.id_responce, responce.video],function(err){
+        this.db.run('Insert into responces (responce_id, video,time) VALUES (? , ?, ?)',
+        [responce.idresponce, responce.video,responce.time],function(err){
             if (err) {
                 return console.log(err.message);
             }else {
@@ -33,9 +33,8 @@ module.exports = class responceController{
                     reject(err);
                 }else{
                     rows.forEach((row)=>{
-                        var responceObj = new responce(row.id_responce,row.video);
+                        var responceObj = new responce(row.id_responce,row.video,row.time);
                         
-                        responceObj.time = row.time;
                         console.log(list.push(responceObj));
                         resolve (list);
                     })

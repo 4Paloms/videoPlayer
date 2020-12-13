@@ -65,24 +65,24 @@ $(document).ready(function(){
 	$(".TreceRG").on('click', function(){
 		$.featherlight.close();
 		questionResponse=true;
-		responce = 13;
+		responce = 'Trece Roland Garros';
 	})
 	$(".DiezRG").on('click', function(){
 		$.featherlight.close();
 		questionResponse=true;
-		responce = 10;
+		responce = 'Diez Roland Garros';
 		
 	})
 	$(".CincoRG").on('click', function(){
 		$.featherlight.close();
 		questionResponse=true;
-		responce = 5;
+		responce = "Cinco Roland Garros";
 		
 	})
 	$(".NingunoRG").on('click', function(){
 		$.featherlight.close();
 		questionResponse=true;
-		responce = 0;
+		responce = 'Ningun Roland Garros';
 		
 	})
 
@@ -128,7 +128,8 @@ $(document).ready(function(){
 		   if(currentTime == checkQuestion && questionResponse==false)
 			   player[0].currentTime = 1;
 		   if(currentTime == durationNum && questionResponse==true && insertion==false){
-			var info = {"responce" : responce, "video":player[0].src} ;
+			   var f= new Date();
+			var info = {"responce":responce , "video":player[0].src , "time" : f } ;
 			var data ={
 				url:"/index",
 				type:"POST",

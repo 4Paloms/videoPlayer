@@ -1,7 +1,7 @@
 module.exports = class responceObject {
-    constructor(id_responce,video){
-        this.id_responce=id_responce;
+    constructor(idresponce,video,time){
+        this.idresponce=idresponce;
         this.video=video;
-        this.time=null;
+        this.time=time;
     } 
 }

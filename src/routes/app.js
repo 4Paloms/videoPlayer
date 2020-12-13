@@ -21,10 +21,8 @@ router.post("/index",(req,res) => {
   var controller = new responceController();
   console.log(req.body)
   
-  var responce = new responceObject('','');
-  responce.id_responce = req.body.responce
-  responce.video = req.body.video
-
+  var responce = new responceObject(req.body.responce,req.body.video,req.body.time);
+ 
   controller.insert(responce);
     
 });     

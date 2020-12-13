@@ -48,6 +48,31 @@
       </nav>
 
       <div class="container-fluid">
+        <h1 class="mt-4">Añadir Videos de Internet</h1>
+
+        <%if (responces.length) {%>
+        <table class="table mt-2">
+          <thead class="thead-dark">
+            <tr>
+              <th> Respuesta </th>
+              <th> Video </th>
+              <th> Time </th>
+            </tr>
+          </thead>
+          <% responces.forEach(function(responce) { %>
+            <tr>
+              <th> <%= responce.idresponce %></th>
+              <th> <%= responce.video %></th>
+              <th> <%= responce.time %> </th>
+            </tr>
+
+          <%})%>
+        </table>
+        <%} else {%>
+          <p> NO HAY ESTADISTICAS</p>
+
+        <%}%>
+
         
           
 
